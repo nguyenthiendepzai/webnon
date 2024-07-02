@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Mặt hàng</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    line-height: 1.5;
+    background-color: rgb(207, 193, 193);
+}
+
+.card-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
+.img-display {
+    overflow: hidden;
+}
+
+.img-showcase {
+    display: flex;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.img-showcase img {
+    min-width: 100%;
+}
+
+.img-select {
+    display: flex;
+}
+
+.img-item {
+    margin: 0.3rem;
+}
+
+.img-item:nth-child(1),
+.img-item:nth-child(2),
+.img-item:nth-child(3) {
+    margin-right: 0;
+}
+
+.img-item:hover {
+    opacity: 0.8;
+}
+
+.product-content {
+    padding: 2rem 1rem;
+}
+
+.product-title {
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
+}
+
+.product-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 80px;
+    background: #12263a;
+}
+.product-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    background: #256eff;
+    color: #fff;
+    padding: 0 0.3rem;
+    transition: all 0.5s ease;
+}
+
+.product-link:hover {
+    opacity: 0.9;
+}
+
+.product-rating {
+    color: #ffc107;
+}
+
+.product-rating span {
+    font-weight: 600;
+    color: #252525;
+}
+
+.product-price {
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.product-price span {
+    font-weight: 400;
+}
+
+.last-price span {
+    color: #f64749;
+    text-decoration: line-through;
+}
+
+.new-price span {
+    color: #256eff;
+}
+
+.product-detail h2 {
+    text-transform: capitalize;
+    color: #12263a;
+    padding-bottom: 0.6rem;
+}
+
+.product-detail p {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+
+.product-detail ul {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.product-detail ul li {
+    margin: 0;
+    list-style: none;
+    background: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Fso%2Fcheck&psig=AOvVaw1fwQOP8VRYe0dFZ5v-e6M7&ust=1639295607056000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCODVg5Wi2_QCFQAAAAAdAAAAABAY) left center no-repeat;
+    background-size: 18px;
+    padding-left: 1.7rem;
+    margin: 0.4rem 0;
+    font-weight: 600;
+    opacity: 0.9;
+    color: #f64749;
+}
+
+.product-detail ul li span{
+    font-weight: 400;
+}
+.purchase-info {
+    margin: 1.5rem 0;
+}
+
+.purchase-info input,
+.purchase-info .btn {
+    border: 1.5px solid #ddd;
+    border-radius: 20px;
+text-align: center;
+    padding: 0.45rem 0.8rem;
+    outline: 0;
+    margin-right: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.purchase-info input {
+    width: 60px;
+}
+
+.purchase-info .btn {
+    cursor: pointer;
+    color: #fff;
+}
+
+.purchase-info .btn:first-of-type{
+    background: #f64749;
+}
+
+.purchase-info .btn:last-of-type{
+    background: #f64749;
+}
+
+.purchase-info .btn:hover {
+    opacity: 0.9;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #000;
+    border: 1px solid#000;
+    margin: 0 0.2rem;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.5s ease;
+}
+
+.social-links a:hover {
+    background: #000;
+    border-color: transparent;
+    color: #fff;
+}
+
+@media screen and (min-width: 992px) {
+    .card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem
+    }
+    .card-wrapper {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-imgs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .product-content {
+        padding-top: 0;
+
+    }
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="card-wrapper">
+        <div class="card">
+            <!-- card left -->
+            <div class="product-imgs">
+                <div class="img-display">
+                    <div class="img-showcase">
+                        <img src="non10.jpg" alt="">
+                        <img src="non.jpg" alt="">
+                        <img src="non4.jpg" alt="">
+                        <img src="non11.jpg" alt="">
+                    </div>
+                </div>
+                <div class="img-select">
+                    <div class="img-item">
+                        <a href="#" data-id = "1">
+                            <img src="non10.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id = "2">
+                            <img src="non.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id = "3">
+                            <img src="non4.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id = "4">
+                            <img src="non11.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+<!-- card right -->
+            <div class="product-content">
+                <h2 class="product-title">
+                     Nón (Mr.Caps)
+                </h2>
+                <a href="#" class="product-link"> Ghé thăm cửa hàng  </a>
+                <div class="product-rating">
+                   <i class="fas fa-star"></i>
+                   <i class="fas fa-star"></i>
+                   <i class="fas fa-star"></i>
+                   <i class="fas fa-star"></i>
+                   <i class="fas fa-star-half-alt"></i>
+                    <span>4.7(100)</span>
+                </div>
+
+                <div class="product-price">
+                    <p class="last-price">Giá cũ: <span>69.000đ</span></p>
+                    <p class="new-price">Giá mới: <span>59.000đ(10%)</span></p>
+                </div>
+
+                <div class="product-detail">
+                    <h2>Về mặt hàng này : </h2>
+                    <p> Chất liệu vải: Mũ được dệt từ vải kaki cao cấp.
+                         Kích thước nón: S (55 - 56cm); M (57 - 58cm); L (59 - 60cm)
+                         Màu sắc: Đen, Đỏ, Xanh ,Thiết kế bit đuôi có thể đội ngược cá tính, phần bo chun co dãn giúp thoải mái khi đội, Form dáng chuẩn, chắc chắn, form mềm giúp định hình được khuôn mặt.
+                         Nón được thiết kế để bảo vệ cho vùng mắt, vùng da mặt, da đầu và tóc tránh các tia cực tím độc hại từ ánh nắng mặt trời.
+                         Vải được nhuộm màu theo công nghệ cao giúp cho hạn chế bị phai màu khi giặt giũ hay thường xuyên đi ra ngoài trời.
+                         Thiết kế may tinh tế, sắc sảo và thời trang, theo phong cách Ulzzang Hàn Quốc cá tính.
+                         Hạn chế gây ra mồ hôi ở đầu, không gây kích ứng da đầu.
+                         Phần đai nón có đệm bông tạo cảm giác thoải mái khi đội nón và không để lại vết hằn lên trán.
+                         Khóa chỉnh size phía sau nón được làm bằng inox không gỉ rất dễ dàng sử dụng điều chỉnh nón.
+                         Nón lưỡi trai phù hợp với đa dạng phong cách từ trẻ trung cá tính tới bánh bèo sang chảnh, là một phụ kiện không thể thiếu trong mọi tủ đồ.
+                         </p>
+                    <p>Lưu ý: Khi đặt hàng phải chọn size cho chuẩn tránh xảy ra trường hợp không vừa,
+                         ship nhanh và giao hàng nhanh chóng đến tay người dùng,
+                         đường chỉ may đều và đẹp, form chuẩn đẹp, giống đến 99% so với hình mẫu.
+                          Ngoài ra, khi áp dụng voucher giá sẽ ưu đãi hơn</p>
+                    <ul>
+                        <li>  Còn hàng: <span>Trong kho</span></li>
+                        <li> Xuất xứ: <span>Việt Nam</span></li>
+                        <li> Vận chuyển: <span>Toàn quốc</span></li>
+                        <li>Phí vận chuyển: <span>Theo khu vực</span></li>
+                    </ul>
+                </div>
+
+                <div class="purchase-info">
+                    <input type="number" min="0" value="1">
+                    <button type="button" class="btn">
+                        Mua ngay <i class=""><link rel="nav-link" href="https://shopee.vn/mrcaps.vn"></i>
+                        
+                    </button>
+                    <button type="button" class="btn" id = "btn-test">Kiểm tra 
+                </div>
+
+                <div class="social-links">
+                    <p>Share At: </p>
+                    <a href="https://www.facebook.com/Nonluoitraidep">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/?lang=vi">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <i class="fab fa-instagram"></i>
+</a>
+                    <a href="https://www.whatsapp.com/?lang=vi_VN">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.pinterest.com/">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script >const imgs = document.querySelectorAll('.img-select a');
+        const imgBtns = [...imgs];
+        let imgId = 1;
+        
+        imgBtns.forEach((imgItem) => {
+            imgItem.addEventListener('click', (event) => {
+                event.preventDefault();
+                imgId = imgItem.dataset.id;
+                slideImage();
+            });
+        });
+        
+        function slideImage(){
+            const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+        
+            document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+        }
+        
+        window.addEventListener('resize', slideImage);</script>
+         <script src="https://uhchat.net/code.php?f=f622f9"></script>
+         <div class="map-container">
+           <center><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d958.6343240760596!2d108.22049666961436!3d16.037584587949905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219e90334f96f%3A0x430e2149e78987c7!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIFBoxrDGoW5nIMSQw7RuZyDEkMOgIE7hurVuZw!5e0!3m2!1svi!2s!4v1704621926463!5m2!1svi!2s" width="1000" height="1000" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></center>   
+        
+</body>
+</html>

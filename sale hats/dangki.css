@@ -1,0 +1,73 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  background-image: url(nendangki.jpg);
+}
+
+.register-container {
+  width: 360px;
+  padding: 70px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.register-header h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.register-button {
+  width: 106%;
+  padding: 10px;
+  background-color: #ee4d2d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.register-button:hover {
+  background-color: #d4412d;
+}
+
+.register-footer {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register-footer span {
+  color: #555;
+}
+
+.register-footer a {
+  color: #ee4d2d;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}
